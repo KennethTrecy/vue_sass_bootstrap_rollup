@@ -1,4 +1,4 @@
-# Experiment 20210718
+# Demo 20210718
 This is a demonstration of compiling Vue single-file component with SCSS syntax using Rollup.
 
 ## Author
