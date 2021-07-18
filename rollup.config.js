@@ -1,4 +1,4 @@
-import nodeResolve from "rollup-plugin-node-resolve";
+import nodeResolve from "@rollup/plugin-node-resolve";
 import replace from "rollup-plugin-replace";
 import scss from "rollup-plugin-scss";
 import vue from "rollup-plugin-vue";
