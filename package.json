@@ -1,0 +1,21 @@
+{
+	"name": "experiment_20210718",
+	"version": "0.1.0",
+	"description": "Demonstration of compiling Vue file with Sass syntax using Rollup",
+	"author": "Kenneth Trecy Tobias <33564322+KennethTrecy@users.noreply.github.com>",
+	"private": true,
+	"scripts": {
+		"compile": "npx rollup -c"
+	},
+	"dependencies": {
+		"vue": "^3.1.5"
+	},
+	"devDependencies": {
+		"rollup": "^2.53.2",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-replace": "^2.2.0",
+		"rollup-plugin-scss": "^3.0.0",
+		"rollup-plugin-vue": "^6.0.0",
+		"sass": "^1.35.2"
+	}
+}
