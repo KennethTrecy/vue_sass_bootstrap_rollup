@@ -17,12 +17,17 @@ export default [{
 		"name": "app"
 	},
 	"plugins": [
-		// Adding the plugin below will transform style tags into CSS files
+
+		/*
+		 * Adding the plugin below will transform style tags into CSS files.
+		 * See: https://rollup-plugin-vue.vuejs.org/options.html#css
+		 */
 		vue({ "css": false }),
 
 		/*
 		 * Then, the plugin below will compile the CSS files with SCSS syntax to CSS syntax. The CSS
 		 * files will not be included to the JavaScript file but rather exported to a CSS file.
+		 * See: https://www.npmjs.com/package/rollup-plugin-scss
 		 */
 		scss()
 	]
@@ -34,7 +39,11 @@ export default [{
 		"name": "Vue"
 	},
 	"plugins": [
-		// Add the plugin below to include the third-party library in the compilation.
+
+		/*
+		 * Add the plugin below to include the third-party library in the compilation.
+		 * See: https://www.npmjs.com/package/@rollup/plugin-node-resolve
+		 */
 		nodeResolve({
 			"browser": true
 		}),
@@ -42,6 +51,7 @@ export default [{
 		/*
 		 * Then, the plugin below will replace the assertions of environment to tell the library will
 		 * be used for development mode.
+		 * See: https://www.npmjs.com/package/@rollup/plugin-replace
 		 */
 		replace({
 			"process.env.NODE_ENV": '"dev"'
