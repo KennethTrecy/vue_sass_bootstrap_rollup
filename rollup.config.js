@@ -1,3 +1,4 @@
+import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import scss from "rollup-plugin-scss";
@@ -5,12 +6,13 @@ import vue from "rollup-plugin-vue";
 
 export default [{
 	// This object is the configuration to compile the app template
-	"external": ["vue"],
+	"external": ["vue", "bootstrap"],
 	"input": "index.js",
 	"output": {
 		"file": "compiled_index.js",
 		"format": "iife",
 		"globals": {
+			"bootstrap": "Bootstrap",
 			"vue": "Vue"
 		},
 		"interop": "default",
@@ -54,7 +56,34 @@ export default [{
 		 * See: https://www.npmjs.com/package/@rollup/plugin-replace
 		 */
 		replace({
+			"__VUE_OPTIONS_API__": "true",
+			"__VUE_PROD_DEVTOOLS__": "true",
 			"process.env.NODE_ENV": '"dev"'
 		})
+	]
+}, {
+	"input": "bootstrap.src.js",
+	"output": {
+		"file": "compiled_bootstrap.js",
+		"format": "iife",
+		"name": "Bootstrap"
+	},
+	"plugins": [
+
+		/*
+		 * Add the plugin below to extract compiled bootstrap.
+		 * See: https://www.npmjs.com/package/rollup-plugin-scss
+		 */
+		scss(),
+
+		nodeResolve({
+			"browser": true
+		}),
+
+		/*
+		 * Then, the plugin below will convert the module properly.
+		 * See: https://www.npmjs.com/package/@rollup/plugin-commonjs
+		 */
+		commonjs()
 	]
 }];
